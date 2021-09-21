@@ -90,7 +90,6 @@ class PostController extends Controller
         if(array_key_exists('image',$data)){
             // aggiungo la cartella cover al path di $data['image']
             $img_path = Storage::put('covers', $data['image']);
-
             // assegno la 'nuova' path a $data['cover'] 
             $data['cover'] = $img_path;
         }

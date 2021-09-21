@@ -3,6 +3,7 @@
 @section('content')
     <div class="container">
         <div class="card">
+            
             <h5 class="card-header">{{$post['slug']}}</h5>
             <div class="card-body">
                 <h5 class="card-title">{{$post['title']}}</h5>
@@ -10,7 +11,7 @@
                 <h5 class="card-title">{{$post->category->name}}</h5>
                 @endif
                 <p class="card-text">{{$post['content']}}</p>
-                <img src="{{ asset('storage/' . $post->cover) }}" alt="{{$post['title']}}">
+                <img src="{{ asset('storage/app') . '/' . $post->cover }}" alt="{{$post['title']}}">
                 <div class="card-text">
                     <h3 class="card-title">Tags</h3>
                     @forelse ($post->tags as $tag)
