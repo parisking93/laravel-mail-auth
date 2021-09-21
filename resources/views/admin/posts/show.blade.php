@@ -10,7 +10,9 @@
                 @if($post->category)
                 <h5 class="card-title">{{$post->category->name}}</h5>
                 @endif
+                @if($post->cover)
                 <img src="{{ asset('storage/' . $post->cover ) }}" alt="{{$post['title']}}" />
+                @endif
                 <p class="card-text">{{$post['content']}}</p>
                 <div class="card-text">
                     <h3 class="card-title">Tags</h3>

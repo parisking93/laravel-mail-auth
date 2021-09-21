@@ -145,7 +145,8 @@ class PostController extends Controller
             [
                 'title' => 'required|max:50',
                 'content' => 'required',
-                'category_id' => 'nullable|exists:categories,id'
+                'category_id' => 'nullable|exists:categories,id',
+                'image' => 'nullable|image'
             ]
         );
         $data =$request->all();
@@ -171,7 +172,12 @@ class PostController extends Controller
             $data['slug'] = $slug_creato;
             
         }
-
+        if(array_key_exists('image',$data)){
+            // aggiungo la cartella cover al path di $data['image']
+            $img_path = Storage::put('covers', $data['image']);
+            // assegno la 'nuova' path a $data['cover'] 
+            $data['cover'] = $img_path;
+        }
         $post->update($data);
         if(isset($data['tags'])){
 
