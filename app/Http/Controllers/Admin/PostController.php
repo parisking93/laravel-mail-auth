@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 // lo importo per poetr usare slug 
 use Illuminate\Support\Str;
@@ -52,7 +53,8 @@ class PostController extends Controller
             [
                 'title' => 'required|max:50',
                 'content' => 'required',
-                'category_id' => 'nullable|exists:categories,id'
+                'category_id' => 'nullable|exists:categories,id',
+                'image' => 'nullable|image'
             ]
         );
 
@@ -83,11 +85,21 @@ class PostController extends Controller
         // dd( $slug_database );
         // alla fine del controllo lo aggiungo
         $newPost->slug = $slugCreato;
+        
+        // DIREZIONE IMG 
+        if(array_key_exists('image',$data)){
+            // aggiungo la cartella cover al path di $data['image']
+            $img_path = Storage::put('covers', $data['image']);
+
+            // assegno la 'nuova' path a $data['cover'] 
+            $data['cover'] = $img_path;
+        }
 
         $newPost->fill($data);
         $newPost->save();
         if(isset($data['tags'])){
             $newPost->tags()->attach($data['tags']);
+
         }
         return redirect()->route('admin.posts.index')->with('add', 'Hai aggiunto con successo l\'elemento ' . $newPost->id);  
     }

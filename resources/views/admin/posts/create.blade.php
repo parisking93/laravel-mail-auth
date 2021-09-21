@@ -16,6 +16,7 @@
             @enderror
         </div>
         <div class="mb-3">
+            <!-- select  -->
             <label for="categoria" class="form-label d-block">Titolo</label>
             <select class="form-control w-50 
             @error('category_id') 
@@ -32,6 +33,20 @@
                 <div class="alert alert-danger w-50">{{ $message }}</div>
             @enderror
         </div>
+        <!-- immagine  -->
+        <div class="mb-3">
+            <label for="immagine" class="form-label d-block">Scegli un File</label>
+            <input type="file" name="image" id="immagine" 
+            class="
+            @error('image')
+                is-invalid
+            @enderror" >
+            @error('image')
+                <div class="alert alert-danger w-50">{{ $message }}</div>
+            @enderror
+            
+        </div>
+        <!-- descrizione  -->
         <div class="mb-3">
             <label for="description" class="form-label">Descrizione</label>
             <textarea name="content" class="form-control 
@@ -42,6 +57,7 @@
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
+        <!-- tags  -->
         <div>
             <h3>Tags</h3>
             @foreach ($tags as $k => $tag)
