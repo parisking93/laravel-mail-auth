@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h2 class="mb-4">Aggiungi un Post</h2>
-    <form action="{{ route('admin.posts.store') }}" method="post" class="w-50">
+    <form action="{{ route('admin.posts.store') }}" method="post" class="w-50" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="title" class="form-label d-block">Titolo</label>
