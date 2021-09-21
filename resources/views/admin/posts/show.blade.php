@@ -10,6 +10,7 @@
                 <h5 class="card-title">{{$post->category->name}}</h5>
                 @endif
                 <p class="card-text">{{$post['content']}}</p>
+                <img src="{{ asset('storage/' . $post->cover) }}" alt="{{$post['title']}}">
                 <div class="card-text">
                     <h3 class="card-title">Tags</h3>
                     @forelse ($post->tags as $tag)

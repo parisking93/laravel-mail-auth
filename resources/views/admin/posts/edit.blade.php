@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h2 class="mb-4">Modifica il Post</h2>
-    <form action="{{ route('admin.posts.update', $post->id) }}" method="post" class="w-50">
+    <form action="{{ route('admin.posts.update', $post->id) }}" method="post" class="w-50" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
 
@@ -33,6 +33,19 @@
             @error('category_id')
                 <div class="alert alert-danger w-50">{{ $message }}</div>
             @enderror
+        </div>
+        <!-- immagine  -->
+        <div class="mb-3">
+            <label for="immagine" class="form-label d-block">Scegli un File</label>
+            <input type="file"  name="image" id="immagine" 
+            class="
+            @error('image')
+                is-invalid
+            @enderror" >
+            @error('image')
+                <div class="alert alert-danger w-50">{{ $message }}</div>
+            @enderror
+            
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Descrizione</label>
