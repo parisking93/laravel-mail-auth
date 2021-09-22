@@ -2317,7 +2317,7 @@ __webpack_require__.r(__webpack_exports__);
         'email': this.email,
         'message': this.message
       }).then(function (response) {
-        console.log(response.success);
+        console.log(response);
       });
     }
   }
