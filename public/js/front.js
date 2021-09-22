@@ -2319,6 +2319,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Detail',
   data: function data() {
@@ -38979,14 +38982,17 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container pt-5 " }, [
-    _c("div", { staticClass: "card mt-5 rounded" }, [
+    _c("div", { staticClass: "card mt-5 rounded w-75 mx-auto" }, [
       _c("div", { staticClass: "card-body" }, [
         _c("h3", { staticClass: "card-title" }, [
           _vm._v(_vm._s(_vm.post.title))
         ]),
         _vm._v(" "),
         _vm.post.cover
-          ? _c("img", { attrs: { src: _vm.post.cover, alt: _vm.post.title } })
+          ? _c("img", {
+              staticClass: "my-2",
+              attrs: { src: _vm.post.cover, alt: _vm.post.title }
+            })
           : _vm._e(),
         _vm._v(" "),
         _vm.post.category
@@ -39002,6 +39008,7 @@ var render = function() {
         _vm.post.tags
           ? _c(
               "div",
+              { staticClass: "mt-5" },
               [
                 _c("h5", [_vm._v("Tags")]),
                 _vm._v(" "),
@@ -39021,7 +39028,23 @@ var render = function() {
               ],
               2
             )
-          : _vm._e()
+          : _vm._e(),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "px-2 py-4" },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "btn btn-primary",
+                attrs: { to: { name: "post" } }
+              },
+              [_vm._v("Torna ai Posts")]
+            )
+          ],
+          1
+        )
       ])
     ])
   ])
