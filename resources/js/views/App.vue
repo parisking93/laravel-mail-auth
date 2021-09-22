@@ -18,6 +18,9 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-
+<style lang="scss">
+    .testo {
+        height: 50px;
+        margin-top: 5px;
+    }
 </style>

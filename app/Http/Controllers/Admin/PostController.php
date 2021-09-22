@@ -175,6 +175,8 @@ class PostController extends Controller
         if(array_key_exists('image',$data)){
             // aggiungo la cartella cover al path di $data['image']
             $img_path = Storage::put('covers', $data['image']);
+            // cancella l'immagine vecchia
+            Storage::delete($post->cover);
             // assegno la 'nuova' path a $data['cover'] 
             $data['cover'] = $img_path;
         }
@@ -194,6 +196,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        Storage::delete($post->cover);
         $post->delete();
         $post->tags()->detach();
         return redirect()->route('admin.posts.index')->with('delete', 'Hai cancellato con successo l\'elemento ' . $post->id);

@@ -36,6 +36,7 @@
         </div>
         <!-- immagine  -->
         <div class="mb-3">
+            <img src="{{asset('storage/' . $post->cover)}}" alt="">
             <label for="immagine" class="form-label d-block">Scegli un File</label>
             <input type="file"  name="image" id="immagine" 
             class="

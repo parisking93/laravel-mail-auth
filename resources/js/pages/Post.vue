@@ -6,7 +6,7 @@
                     <div class="card-body">
                         <h4 class="card-title">{{post.title}}</h4>
                         <span class="text-muted">Del {{ formatData(post.created_at) }}</span>
-                        <p class="card-text">{{(post.content.length < 150) ? post.content : (post.content.slice(0,150) + '...')}}</p>
+                        <p class="card-text testo">{{(post.content.length < 100) ? post.content : (post.content.slice(0,100) + '...')}}</p>
                         <router-link :to="{ name : 'detail', params: {slug : post.slug} }" class="btn btn-primary">Show Details</router-link>
                     </div>
                 </div>

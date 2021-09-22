@@ -3,8 +3,9 @@
         <div class="card mt-5 rounded">
             <div class="card-body">
                 <h3 class="card-title">{{post.title}}</h3>
+                <img v-if="post.cover" :src="post.cover" :alt="post.title">
                 <h5 class="card-title" v-if="post.category">Categoria : {{post.category.name}}</h5>
-                <p class="card-text">{{post.content}}</p>
+                <p class="card-text testo">{{post.content}}</p>
                 <div v-if="post.tags">
                     <h5>Tags</h5>
                     <span v-for="tag,index in post.tags" :key="index" class="badge badge-success mx-2">

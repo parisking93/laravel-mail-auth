@@ -45,6 +45,10 @@ class PostController extends Controller
     {
         $post = Post::where('slug', $slug)->with('category','tags')->first();
 
+        if($post->cover) {
+            $post->cover = url('storage/' . $post->cover);
+        }
+
         return response()->json([
             'success' => false,
             'results' => $post
