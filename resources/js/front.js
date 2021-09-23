@@ -1,8 +1,9 @@
 
 require('./bootstrap');
 
-import Vue from 'vue'
-import axios from 'axios'
+import Vue from 'vue';
+window.axios = require('axios');
+window.axios.defaults.headers.common['X-requested-With'] = 'XMLHttpRequest';
 
 import router from './router';
 
